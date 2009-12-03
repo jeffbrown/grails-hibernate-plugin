@@ -17,6 +17,7 @@
 
 import org.springframework.core.io.Resource
 import org.codehaus.groovy.grails.plugins.orm.hibernate.*
+import org.codehaus.groovy.grails.commons.*
 
 /**
 * A plug-in that handles the configuration of Hibernate within Grails
@@ -45,6 +46,8 @@ class HibernateGrailsPlugin {
     def loadAfter = ['controllers', 'domainClass']
 
     def watchedResources = ["file:./grails-app/conf/hibernate/**.xml"]
+
+    def artefacts = [new AnnotationDomainClassArtefactHandler()]
 
     def doWithSpring = HibernatePluginSupport.doWithSpring
 
