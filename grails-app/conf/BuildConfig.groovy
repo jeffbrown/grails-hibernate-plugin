@@ -21,7 +21,7 @@ grails.project.dependency.resolution = {
 			excludes 'xml-apis'
 		}				
 		runtime( 'org.hibernate:hibernate-ehcache:3.3.1.GA' ) {
-			excludes 'ehcache'
+			excludes 'ehcache', 'hibernate-core'
 		}
 		
     }
