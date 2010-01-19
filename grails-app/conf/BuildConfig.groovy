@@ -9,7 +9,7 @@ grails.project.dependency.resolution = {
         compile( 'org.hibernate:hibernate-core:3.3.1.GA') {
 			excludes 'ehcache', 'xml-apis', 'commons-logging'
 		}
-		compile('org.hibernate:hibernate-commons-annotations:3.3.0.ga') {
+		compile('org.hibernate:hibernate-commons-annotations:3.1.0.GA') {
 			excludes 'hibernate'
 		}
         compile 'org.hibernate:hibernate-annotations:3.4.0.GA'
