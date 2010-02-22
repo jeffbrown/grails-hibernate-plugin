@@ -31,17 +31,17 @@ class HibernateGrailsPlugin {
 	def description = "A plugin that provides integration between Grails and Hibernate through GORM"
 
 	
-    def version = "1.3.0.BUILD-SNAPSHOT"
+    def version = "1.2.2.BUILD-SNAPSHOT"
     def documentation = "http://grails.org/doc/$version"
 
     def pluginExcludes = [
             "grails-app/domain/org/grails/*.groovy"
     ]
 
-    def dependsOn = [dataSource: "1.1 > *",
-                     i18n: "1.1 > *",
-                     core: "1.1 > *",
-                     domainClass: "1.1 > *"]
+    def dependsOn = [dataSource: "1.2 > *",
+                     i18n: "1.2 > *",
+                     core: "1.2 > *",
+                     domainClass: "1.2 > *"]
 
     def loadAfter = ['controllers', 'domainClass']
 
