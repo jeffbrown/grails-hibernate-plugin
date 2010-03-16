@@ -32,6 +32,7 @@ class HibernateGrailsPlugin {
 
 	
     def version = "1.2.2.BUILD-SNAPSHOT"
+	def grailsVersion = "1.2 > *"
     def documentation = "http://grails.org/doc/$version"
 
     def pluginExcludes = [
