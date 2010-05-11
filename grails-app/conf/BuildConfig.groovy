@@ -4,6 +4,9 @@ grails.project.test.reports.dir	= "target/test-reports"
 grails.project.dependency.resolution = {
     inherits "global" // inherit Grails' default dependencies
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+	repositories {
+		grailsCentral()
+	}
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         compile( 'org.hibernate:hibernate-core:3.3.1.GA') {
