@@ -1,4 +1,4 @@
-    /*
+/*
  * Copyright 2004-2005 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,29 +14,28 @@
  * limitations under the License.
  */
 
-
 import org.springframework.core.io.Resource
 import org.codehaus.groovy.grails.plugins.orm.hibernate.*
 import org.codehaus.groovy.grails.commons.*
 
 /**
-* A plug-in that handles the configuration of Hibernate within Grails
-*
-* @author Graeme Rocher
-* @since 0.4
-*/
+ * Handles the configuration of Hibernate within Grails.
+ *
+ * @author Graeme Rocher
+ * @since 0.4
+ */
 class HibernateGrailsPlugin {
-	def author = "Graeme Rocher"
-	def title = "Hibernate for Grails"
-	def description = "A plugin that provides integration between Grails and Hibernate through GORM"
+    def author = "Graeme Rocher"
+    def title = "Hibernate for Grails"
+    def description = "Provides integration between Grails and Hibernate through GORM"
 
-	def grailsVersion = "2.0 > *"
+    def grailsVersion = "2.0 > *"
     def version = "2.0.0.BUILD-SNAPSHOT"
     def documentation = "http://grails.org/doc/$version"
-	def observe = ['domainClass']
+    def observe = ['domainClass']
 
     def pluginExcludes = [
-            "grails-app/domain/org/grails/*.groovy"
+        "grails-app/domain/org/grails/*.groovy"
     ]
 
     def dependsOn = [dataSource: "2.0 > *",
