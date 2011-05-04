@@ -33,6 +33,7 @@ class HibernateGrailsPlugin {
 	def grailsVersion = "1.4 > *"
     def version = "1.4.0.BUILD-SNAPSHOT"
     def documentation = "http://grails.org/doc/$version"
+	def observe = ['domainClass']
 
     def pluginExcludes = [
             "grails-app/domain/org/grails/*.groovy"
@@ -51,27 +52,7 @@ class HibernateGrailsPlugin {
 
     def doWithSpring = HibernatePluginSupport.doWithSpring
 
-    def doWithDynamicMethods = {
-		def dynamicMethods = HibernatePluginSupport.doWithDynamicMethods
-		dynamicMethods.delegate = delegate
-		dynamicMethods.call(it)
-		
-		// aids in generating appropriate documentation in plugin.xml since 
-		// domain class methods are lazily loaded we initialize them here
-		if(plugin.basePlugin) {
-			try {
-				def clz = application.classLoader.loadClass("org.grails.Behavior")
-				clz.count()				
-			}
-			catch(e) {
-				// ignore
-			}
-		}
-	}
+    def doWithDynamicMethods = HibernatePluginSupport.doWithDynamicMethods
 
-    def onChange = {event ->
-        if (event.source instanceof Resource) {
-            restartContainer()
-        }
-    }
+    def onChange = HibernatePluginSupport.onChange
 }
