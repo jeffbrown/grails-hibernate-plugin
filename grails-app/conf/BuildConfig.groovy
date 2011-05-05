@@ -9,8 +9,12 @@ grails.project.dependency.resolution = {
 	}
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-	  	compile 'org.hibernate:hibernate-core:3.6.1.Final'
-	    compile 'org.hibernate:hibernate-validator:4.1.0.Final'
+	  	compile( 'org.hibernate:hibernate-core:3.6.1.Final' ){
+			excludes 'slf4j-api'
+		}
+	    compile( 'org.hibernate:hibernate-validator:4.1.0.Final' ) {
+			excludes 'slf4j-api'
+		}
 
 		runtime 'javassist:javassist:3.11.0.GA'
 		runtime 'antlr:antlr:2.7.6'		
