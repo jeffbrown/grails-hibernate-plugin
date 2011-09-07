@@ -3,3 +3,5 @@ grails-hibernate-*.zip
 plugin.xml
 target
 unzipped
+web-app
+
