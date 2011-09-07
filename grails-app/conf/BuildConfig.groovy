@@ -1,6 +1,7 @@
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir	= "target/test-reports"
+grails.project.work.dir="target/work"
 
 grails.project.dependency.resolution = {
     inherits "global" // inherit Grails' default dependencies
@@ -10,7 +11,7 @@ grails.project.dependency.resolution = {
 	}
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-	  	compile( 'org.hibernate:hibernate-core:3.6.1.Final' ){
+	  	compile( 'org.hibernate:hibernate-core:3.6.5.Final' ){
 			excludes 'slf4j-api', 'commons-collections'
 		}
 	    compile( 'org.hibernate:hibernate-validator:4.1.0.Final' ) {
@@ -22,19 +23,15 @@ grails.project.dependency.resolution = {
 		runtime( 'dom4j:dom4j:1.6.1' ) {
 			excludes 'xml-apis'
 		}				
-		runtime( 'org.hibernate:hibernate-ehcache:3.6.1.Final' ) {
+		runtime( 'org.hibernate:hibernate-ehcache:3.6.5.Final' ) {
 			excludes 'ehcache', 'hibernate-core','slf4j-api', 'commons-collections'
 		}
 		
     }
 
 	plugins {
-		build( ":release:1.0.0.M3" ) {
+		build( ":release:1.0.0.RC3" ) {
 			export = false
 		}
-		
-		build( ":svn:1.0.0.M1" ) {
-			export = false
-		}		
 	}
 }

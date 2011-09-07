@@ -31,7 +31,7 @@ class HibernateGrailsPlugin {
 	def description = "A plugin that provides integration between Grails and Hibernate through GORM"
 
 	def grailsVersion = "2.0 > *"
-    def version = "2.0.0.BUILD-SNAPSHOT"
+    def version = "2.0.0.M2"
     def documentation = "http://grails.org/doc/$version"
 	def observe = ['domainClass']
 
