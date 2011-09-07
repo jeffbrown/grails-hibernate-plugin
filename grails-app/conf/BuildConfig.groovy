@@ -14,24 +14,24 @@ grails.project.dependency.resolution = {
 
     dependencies {
         compile('org.hibernate:hibernate-core:3.6.1.Final') {
-			exclude group:'commons-collections', name:'commons-collections'
-			exclude group:'org.slf4j', name:'slf4j-api'			
+            exclude group:'commons-collections', name:'commons-collections'
+            exclude group:'org.slf4j', name:'slf4j-api'
         }
         compile('org.hibernate:hibernate-validator:4.1.0.Final') {
-			exclude group:'commons-collections', name:'commons-collections'
-			exclude group:'org.slf4j', name:'slf4j-api'			
+            exclude group:'commons-collections', name:'commons-collections'
+            exclude group:'org.slf4j', name:'slf4j-api'
         }
 
         runtime 'javassist:javassist:3.11.0.GA'
         runtime 'antlr:antlr:2.7.6'
         runtime('dom4j:dom4j:1.6.1') {
-			exclude group:'xml-apis', name:'xml-apis'			
+            exclude group:'xml-apis', name:'xml-apis'
         }
         runtime('org.hibernate:hibernate-ehcache:3.6.1.Final') {
-			exclude group:'commons-collections', name:'commons-collections'
-			exclude group:'org.slf4j', name:'slf4j-api'			
-			exclude group:'org.hibernate', name:'hibernate-core'						
-			exclude group:'net.sf.ehcache', name:'ehcache'			
+            exclude group:'commons-collections', name:'commons-collections'
+            exclude group:'org.slf4j', name:'slf4j-api'
+            exclude group:'org.hibernate', name:'hibernate-core'
+            exclude group:'net.sf.ehcache', name:'ehcache'
         }
     }
 
