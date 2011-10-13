@@ -14,7 +14,7 @@ grails.project.dependency.resolution = {
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-	  	compile( 'org.hibernate:hibernate-core:3.6.5.Final' ){
+	  	compile( 'org.hibernate:hibernate-core:3.6.7.Final' ){
             exclude group:'commons-collections', name:'commons-collections'
             exclude group:'org.slf4j', name:'slf4j-api'
 		}
