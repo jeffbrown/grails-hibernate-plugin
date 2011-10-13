@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-import org.springframework.core.io.Resource
-import org.codehaus.groovy.grails.plugins.orm.hibernate.*
-import org.codehaus.groovy.grails.commons.*
+import org.codehaus.groovy.grails.commons.AnnotationDomainClassArtefactHandler
+import org.codehaus.groovy.grails.plugins.orm.hibernate.HibernatePluginSupport
 
 /**
  * Handles the configuration of Hibernate within Grails.
@@ -33,10 +32,6 @@ class HibernateGrailsPlugin {
     def version = "2.0.0.M2"
     def documentation = "http://grails.org/doc/$version"
     def observe = ['domainClass']
-
-    def pluginExcludes = [
-        "grails-app/domain/org/grails/*.groovy"
-    ]
 
     def dependsOn = [dataSource: "2.0 > *",
                      i18n: "2.0 > *",

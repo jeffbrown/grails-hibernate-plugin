@@ -13,34 +13,31 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-	  	compile( 'org.hibernate:hibernate-core:3.6.7.Final' ){
+        compile('org.hibernate:hibernate-core:3.6.7.Final') {
             exclude group:'commons-collections', name:'commons-collections'
             exclude group:'org.slf4j', name:'slf4j-api'
-		}
-	    compile( 'org.hibernate:hibernate-validator:4.1.0.Final' ) {
+        }
+        compile('org.hibernate:hibernate-validator:4.1.0.Final') {
             exclude group:'commons-collections', name:'commons-collections'
             exclude group:'org.slf4j', name:'slf4j-api'
-		}
+        }
 
-		runtime 'javassist:javassist:3.12.0.GA'
-		runtime 'antlr:antlr:2.7.6'		
-		runtime( 'dom4j:dom4j:1.6.1' ) {
+        runtime 'javassist:javassist:3.12.0.GA'
+        runtime 'antlr:antlr:2.7.6'
+        runtime('dom4j:dom4j:1.6.1') {
             exclude group:'xml-apis', name:'xml-apis'
-		}				
-		runtime( 'org.hibernate:hibernate-ehcache:3.6.7.Final' ) {
+        }
+        runtime('org.hibernate:hibernate-ehcache:3.6.7.Final') {
             exclude group:'commons-collections', name:'commons-collections'
              exclude group:'org.slf4j', name:'slf4j-api'
              exclude group:'org.hibernate', name:'hibernate-core'
              exclude group:'net.sf.ehcache', name:'ehcache'
-		}
-		
+        }
     }
 
-	plugins {
-		build( ":release:1.0.0.RC3" ) {
-			export = false
-		}
-	}
-
+    plugins {
+        build(":release:1.0.0.RC3") {
+            export = false
+        }
+    }
 }
