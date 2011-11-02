@@ -28,15 +28,15 @@ class HibernateGrailsPlugin {
     def title = "Hibernate for Grails"
     def description = "Provides integration between Grails and Hibernate through GORM"
 
-    def grailsVersion = "2.0 > *"
-    def version = "2.0.0.RC1"
+    def grailsVersion = "2.1 > *"
+    def version = "2.1.0.BUILD-SNAPSHOT"
     def documentation = "http://grails.org/doc/$version"
     def observe = ['domainClass']
 
-    def dependsOn = [dataSource: "2.0 > *",
-                     i18n: "2.0 > *",
-                     core: "2.0 > *",
-                     domainClass: "2.0 > *"]
+    def dependsOn = [dataSource: "2.1 > *",
+                     i18n: "2.1 > *",
+                     core: "2.1 > *",
+                     domainClass: "2.1 > *"]
 
     def loadAfter = ['controllers', 'domainClass']
 
