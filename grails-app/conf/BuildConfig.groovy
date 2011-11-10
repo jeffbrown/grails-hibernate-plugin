@@ -35,6 +35,7 @@ grails.project.dependency.resolution = {
              exclude group:'org.slf4j', name:'slf4j-api'
              exclude group:'org.hibernate', name:'hibernate-core'
              exclude group:'net.sf.ehcache', name:'ehcache'
+             exclude group:'net.sf.ehcache', name:'ehcache-core'             
         }
     }
 
