@@ -1,11 +1,8 @@
-grails.project.class.dir = "target/classes"
-grails.project.test.class.dir = "target/test-classes"
-grails.project.test.reports.dir = "target/test-reports"
-grails.project.work.dir="target/work"
+grails.project.work.dir = 'target'
+
 grails.project.dependency.resolution = {
 
     inherits "global"
-
     log "warn"
 
     repositories {
@@ -14,14 +11,14 @@ grails.project.dependency.resolution = {
 
     dependencies {
         compile('org.hibernate:hibernate-core:3.6.7.Final') {
-            exclude group:'commons-logging', name:'commons-logging'            
+            exclude group:'commons-logging', name:'commons-logging'
             exclude group:'commons-collections', name:'commons-collections'
             exclude group:'org.slf4j', name:'slf4j-api'
-            exclude group:'xml-apis', name:'xml-apis'            
-            exclude group:'dom4j', name:'dom4j'                        
+            exclude group:'xml-apis', name:'xml-apis'
+            exclude group:'dom4j', name:'dom4j'
         }
         compile('org.hibernate:hibernate-validator:4.1.0.Final') {
-            exclude group:'commons-logging', name:'commons-logging'            
+            exclude group:'commons-logging', name:'commons-logging'
             exclude group:'commons-collections', name:'commons-collections'
             exclude group:'org.slf4j', name:'slf4j-api'
         }
@@ -35,16 +32,16 @@ grails.project.dependency.resolution = {
              exclude group:'commons-logging', name:'commons-logging'
              exclude group:'commons-collections', name:'commons-collections'
              exclude group:'org.slf4j', name:'slf4j-api'
-             exclude group:'xml-apis', name:'xml-apis'                         
-             exclude group:'dom4j', name:'dom4j'                                     
+             exclude group:'xml-apis', name:'xml-apis'
+             exclude group:'dom4j', name:'dom4j'
              exclude group:'org.hibernate', name:'hibernate-core'
              exclude group:'net.sf.ehcache', name:'ehcache'
-             exclude group:'net.sf.ehcache', name:'ehcache-core'             
+             exclude group:'net.sf.ehcache', name:'ehcache-core'
         }
     }
 
     plugins {
-        build(":release:1.0.0.RC3") {
+        build(":release:1.0.0") {
             export = false
         }
     }
