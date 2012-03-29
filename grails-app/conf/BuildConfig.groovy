@@ -21,6 +21,10 @@ grails.project.dependency.resolution = {
             exclude group:'dom4j', name:'dom4j'                        
             exclude group:'antlr', name:'antlr'             
         }
+        compile( 'org.hibernate:hibernate-commons-annotations:3.2.0.Final' ){
+            excludes 'slf4j-api'
+        }
+        
         compile('org.hibernate:hibernate-validator:4.1.0.Final') {
             exclude group:'commons-logging', name:'commons-logging'            
             exclude group:'commons-collections', name:'commons-collections'
