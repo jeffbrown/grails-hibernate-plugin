@@ -13,8 +13,8 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile('org.hibernate:hibernate-core:3.6.7.Final') {
-            exclude group:'commons-logging', name:'commons-logging'            
+        compile('org.hibernate:hibernate-core:3.6.10.Final') {
+            exclude group:'commons-logging', name:'commons-logging'
             exclude group:'commons-collections', name:'commons-collections'
             exclude group:'org.slf4j', name:'slf4j-api'
             exclude group:'xml-apis', name:'xml-apis'            
@@ -32,7 +32,7 @@ grails.project.dependency.resolution = {
         runtime('dom4j:dom4j:1.6.1') {
             exclude group:'xml-apis', name:'xml-apis'
         }
-        runtime('org.hibernate:hibernate-ehcache:3.6.7.Final') {
+        runtime('org.hibernate:hibernate-ehcache:3.6.10.Final') {
              exclude group:'commons-logging', name:'commons-logging'
              exclude group:'commons-collections', name:'commons-collections'
              exclude group:'org.slf4j', name:'slf4j-api'
