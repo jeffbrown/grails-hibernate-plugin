@@ -48,5 +48,9 @@ grails.project.dependency.resolution = {
              exclude group:'net.sf.ehcache', name:'ehcache-core'             
         }
     }
-
+    plugins {
+        build(':release:2.0.2', ':rest-client-builder:1.0.2') {
+            export = false
+        }
+    }
 }
