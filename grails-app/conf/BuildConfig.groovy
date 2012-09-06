@@ -27,7 +27,7 @@ grails.project.dependency.resolution = {
             exclude group:'org.slf4j', name:'slf4j-api'
         }
 
-        runtime 'javassist:javassist:3.12.0.GA'
+        runtime 'org.javassist:javassist:3.16.1-GA'
         runtime 'antlr:antlr:2.7.7'
         runtime('dom4j:dom4j:1.6.1') {
             exclude group:'xml-apis', name:'xml-apis'
