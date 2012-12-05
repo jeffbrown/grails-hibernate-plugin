@@ -1,6 +1,6 @@
 grails.project.work.dir = 'target'
 grails.project.source.level = 1.6
-
+grails.project.plugins.dir="target/plugins"
 grails.project.dependency.resolution = {
 
     inherits "global"
