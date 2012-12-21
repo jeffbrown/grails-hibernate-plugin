@@ -1,6 +1,6 @@
 grails.project.work.dir = 'target'
 grails.project.source.level = 1.6
-
+grails.project.plugins.dir="target/plugins"
 grails.project.dependency.resolution = {
 
     inherits "global"
@@ -17,6 +17,7 @@ grails.project.dependency.resolution = {
             exclude group:'org.slf4j', name:'slf4j-api'
             exclude group:'xml-apis', name:'xml-apis'
             exclude group:'dom4j', name:'dom4j'
+            exclude group: 'antlr', name: 'antlr'
         }
         compile( 'org.hibernate:hibernate-commons-annotations:3.2.0.Final' ){
             excludes 'slf4j-api'
@@ -46,7 +47,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        build(':release:2.0.4', ':rest-client-builder:1.0.2') {
+        build(':release:2.2.0', ':rest-client-builder:1.0.3') {
             export = false
         }
     }
