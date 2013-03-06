@@ -1,5 +1,4 @@
-/*
- * Copyright 2004-2005 the original author or authors.
+/* Copyright 2004-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,37 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import grails.plugin.hibernate3.HibernatePluginSupport
 
 import org.codehaus.groovy.grails.commons.AnnotationDomainClassArtefactHandler
-import org.codehaus.groovy.grails.plugins.orm.hibernate.HibernatePluginSupport
 
 /**
  * Handles the configuration of Hibernate within Grails.
  *
  * @author Graeme Rocher
- * @since 0.4
  */
 class HibernateGrailsPlugin {
     def author = "Graeme Rocher"
-    def title = "Hibernate for Grails"
-    def description = "Provides integration between Grails and Hibernate through GORM"
+    def title = "Hibernate 3 for Grails"
+    def description = "Provides integration between Grails and Hibernate 3 through GORM"
 
-    def grailsVersion = "2.3 > *"
-    def version = "2.3.0.BUILD-SNAPSHOT"
-    def documentation = "http://grails.org/doc/$version"
+    def grailsVersion = "2.0 > *"
+    def version = "3.6.10.BUILD-SNAPSHOT"
     def observe = ['domainClass']
-
-    def dependsOn = [dataSource: "2.2 > *",
-                     i18n: "2.2 > *",
-                     core: "2.2 > *",
-                     domainClass: "2.2 > *"]
-
     def loadAfter = ['controllers', 'domainClass']
-
     def watchedResources = ["file:./grails-app/conf/hibernate/**.xml"]
+    def artefacts = [AnnotationDomainClassArtefactHandler]
 
-    def artefacts = [new AnnotationDomainClassArtefactHandler()]
-
+    def license = 'APACHE'
+    def organization = [name: 'SpringSource', url: 'http://www.springsource.org/']
+//    def issueManagement = [system: 'JIRA', url: 'http://jira.grails.org/browse/TODO']
+    def scm = [url: 'https://github.com/grails-plugins/grails-hibernate-plugin']
+ 
     def doWithSpring = HibernatePluginSupport.doWithSpring
 
     def doWithDynamicMethods = HibernatePluginSupport.doWithDynamicMethods
