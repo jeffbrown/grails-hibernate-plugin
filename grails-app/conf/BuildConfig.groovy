@@ -68,6 +68,12 @@ grails.project.dependency.resolution = {
                      'jcl-over-slf4j', 'junit', 'slf4j-api', 'slf4j-log4j12'
         }
 
+        runtime 'net.sf.ehcache:ehcache-core:2.4.6', {
+            excludes 'bsh', 'btm', 'commons-logging', 'derby', 'dom4j', 'hamcrest-core', 'hamcrest-library',
+                     'hibernate', 'hibernate-core', 'hibernate-ehcache', 'javassist', 'jta', 'junit-dep',
+                     'mockito-core', 'servlet-api', 'slf4j-api', 'slf4j-jdk14', 'xsom'
+        }
+
         test 'org.spockframework:spock-grails-support:0.7-groovy-2.0', {
             export = false
         }
