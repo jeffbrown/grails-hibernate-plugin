@@ -16,7 +16,6 @@ grails.project.dependency.resolution = {
         String datastoreVersion = '2.0.0.M1'
 
         compile "org.grails:grails-datastore-gorm-hibernate:$datastoreVersion"
-compile "org.grails:grails-databinding:2.3.0.BUILD-SNAPSHOT"
 
         runtime 'cglib:cglib:2.2.2'
 
