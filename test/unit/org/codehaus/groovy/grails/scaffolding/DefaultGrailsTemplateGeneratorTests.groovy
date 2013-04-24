@@ -5,6 +5,7 @@ import static org.junit.matchers.JUnitMatchers.containsString
 
 import grails.util.BuildSettings
 import grails.util.BuildSettingsHolder
+import groovy.lang.GroovyClassLoader;
 
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 import org.codehaus.groovy.grails.commons.GrailsDomainConfigurationUtil
@@ -23,13 +24,15 @@ class DefaultGrailsTemplateGeneratorTests extends GroovyTestCase {
     public static GrailsPlugin fakeHibernatePlugin = [getName: { -> 'hibernate' }] as GrailsPlugin
 
     private MockGrailsPluginManager pluginManager
-    private DefaultGrailsTemplateGenerator templateGenerator = new DefaultGrailsTemplateGenerator(basedir:"../grails-resources")
+    private GroovyClassLoader gcl = new GroovyClassLoader(Thread.currentThread().getContextClassLoader())
+    private DefaultGrailsTemplateGenerator templateGenerator = new DefaultGrailsTemplateGenerator(gcl)
 
     protected void setUp() {
         def buildSettings = new BuildSettings(new File("."))
         BuildSettingsHolder.settings = buildSettings
         pluginManager = new MockGrailsPluginManager()
         pluginManager.registerMockPlugin fakeHibernatePlugin
+        templateGenerator.basedir = "."
         templateGenerator.pluginManager = pluginManager
     }
 

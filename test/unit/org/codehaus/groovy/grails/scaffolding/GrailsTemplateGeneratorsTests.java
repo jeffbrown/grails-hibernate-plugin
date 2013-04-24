@@ -29,10 +29,9 @@ import junit.framework.TestCase;
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass;
 import org.codehaus.groovy.grails.commons.GrailsClassUtils;
 import org.codehaus.groovy.grails.commons.GrailsDomainClass;
+import org.codehaus.groovy.grails.plugins.GrailsPluginUtils;
 import org.codehaus.groovy.grails.plugins.MockGrailsPluginManager;
 import org.codehaus.groovy.grails.plugins.PluginManagerHolder;
-import org.springframework.core.io.AbstractResource;
-import org.springframework.core.io.ClassPathResource;
 
 /**
  * @author Graeme Rocher
@@ -40,42 +39,26 @@ import org.springframework.core.io.ClassPathResource;
 @SuppressWarnings("rawtypes")
 public class GrailsTemplateGeneratorsTests extends TestCase {
 
-    private DefaultGrailsTemplateGenerator generator = new DefaultGrailsTemplateGenerator();
     private GroovyClassLoader gcl = new GroovyClassLoader(Thread.currentThread().getContextClassLoader());
+    private DefaultGrailsTemplateGenerator generator = new DefaultGrailsTemplateGenerator(gcl);
 
     @Override
     protected void setUp() {
         BuildSettings buildSettings = new BuildSettings(new File("."));
+        buildSettings.setProjectPluginsDir(new File("target/plugins"));
         BuildSettingsHolder.setSettings(buildSettings);
         MockGrailsPluginManager pluginManager = new MockGrailsPluginManager();
         PluginManagerHolder.setPluginManager(pluginManager);
         pluginManager.registerMockPlugin(DefaultGrailsTemplateGeneratorTests.fakeHibernatePlugin);
-        generator.setBasedir("../grails-resources");
+        generator.basedir = ".";
+        generator.setPluginManager(pluginManager);
+        GrailsPluginUtils.getPluginBuildSettings().setPluginDirPath("target/plugins");
     }
 
     @Override
     protected void tearDown() {
         BuildSettingsHolder.setSettings(null);
         PluginManagerHolder.setPluginManager(null);
-    }
-
-    public void testGetTemplateTextFromClasspath() {
-        BuildSettings bs = BuildSettingsHolder.getSettings();
-        BuildSettingsHolder.setSettings(null);
-        try {
-            generator.setBasedir("/not/there");
-            AbstractResource templateResource = generator.getTemplateResource("list.gsp");
-            assertTrue(templateResource instanceof ClassPathResource);
-            ClassPathResource cpr = (ClassPathResource) templateResource;
-            assertEquals("src/grails/templates/scaffolding/list.gsp", cpr.getPath());
-
-            templateResource = generator.getTemplateResource("/list.gsp");
-            assertTrue(templateResource instanceof ClassPathResource);
-            cpr = (ClassPathResource) templateResource;
-            assertEquals("src/grails/templates/scaffolding/list.gsp", cpr.getPath());
-        } finally {
-            BuildSettingsHolder.setSettings(bs);
-        }
     }
 
     public void testGenerateController() throws Exception {
