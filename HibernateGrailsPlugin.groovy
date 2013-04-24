@@ -26,16 +26,17 @@ class HibernateGrailsPlugin {
     def title = "Hibernate 3 for Grails"
     def description = "Provides integration between Grails and Hibernate 3 through GORM"
 
-    def grailsVersion = "2.0 > *"
-    def version = "3.6.10.BUILD-SNAPSHOT"
+    def grailsVersion = "2.3 > *"
+    def version = "3.6.10.M1"
     def observe = ['domainClass']
     def loadAfter = ['controllers', 'domainClass']
     def watchedResources = ["file:./grails-app/conf/hibernate/**.xml"]
     def artefacts = [AnnotationDomainClassArtefactHandler]
+    def pluginExcludes = ['src/templates/**']
 
     def license = 'APACHE'
     def organization = [name: 'SpringSource', url: 'http://www.springsource.org/']
-//    def issueManagement = [system: 'JIRA', url: 'http://jira.grails.org/browse/TODO']
+    def issueManagement = [system: 'JIRA', url: 'http://jira.grails.org/browse/GPHIB']
     def scm = [url: 'https://github.com/grails-plugins/grails-hibernate-plugin']
  
     def doWithSpring = HibernatePluginSupport.doWithSpring
