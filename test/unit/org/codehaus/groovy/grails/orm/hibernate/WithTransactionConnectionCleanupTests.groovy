@@ -25,21 +25,22 @@ class WithTransactionConnectionCleanupTests extends AbstractGrailsHibernateTests
             // This is the only way to force hibernate to actually close the db connection in the new session
             TransactionSynchronizationManager.unbindResource(sessionFactory)
         }
+        def sf = sessionFactory
         Session previousSession = sessionHolder?.session
         try {
             template.alwaysUseNewSession = true
             template.execute(new HibernateCallback() {
                 def doInHibernate(Session session) throws SQLException {
-                    TransactionSynchronizationManager.bindResource(sessionFactory, new SessionHolder(session))
+                    TransactionSynchronizationManager.bindResource(sf, new SessionHolder(session))
                     callable(session)
                 }
             })
         }
         finally {
             // This is the only way to force hibernate to actually close the db connection in the new session
-            TransactionSynchronizationManager.unbindResource(sessionFactory)
+            TransactionSynchronizationManager.unbindResource(sf)
             if (sessionHolder) {
-                TransactionSynchronizationManager.bindResource(sessionFactory, sessionHolder)
+                TransactionSynchronizationManager.bindResource(sf, sessionHolder)
             }
         }
     }
