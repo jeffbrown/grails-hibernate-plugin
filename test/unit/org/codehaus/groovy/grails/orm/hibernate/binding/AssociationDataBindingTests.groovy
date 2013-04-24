@@ -76,9 +76,8 @@ class AssociationBindingAuthor {
         assertNotNull Author.newInstance(name:"Stephen King").save(flush:true)
 
         def book = Book.newInstance()
-        def params = ['author.id':1, title:'The Shining']
+        def params = [author: [id:1], title:'The Shining']
         book.properties = params
-
         assertNotNull "The author should have been bound", book.author
         assertEquals "The Shining", book.title
     }
@@ -111,7 +110,7 @@ class AssociationBindingAuthor {
         def author = Author.newInstance(name:"Stephen King").save(flush:true, failOnError: true)
         def book = Book.newInstance(title: "The Shining", author: author).save(flush:true, failOnError: true)
 
-        def params = ['author.id': "null"]
+        def params = [author: [id: "null"]]
         book.properties = params
         assertNull "The author should have been unbound", book.author
     }
@@ -129,7 +128,7 @@ class AssociationBindingAuthor {
         session.clear()
         book = book.refresh()
 
-        def params = ["pages[0].id": "$page1.id", "pages[1].id": "$page2.id"]
+        def params = ['pages[0]': [id: "$page1.id"], 'pages[1]': [id: "$page2.id"]]
 
         book.properties = params
 
@@ -151,7 +150,7 @@ class AssociationBindingAuthor {
         session.clear()
         book = book.refresh()
 
-        def params = ["pages[1].id": "$page2.id"]
+        def params = ['pages[1]': [id: "$page2.id"]]
 
         book.properties = params
 
@@ -173,7 +172,7 @@ class AssociationBindingAuthor {
         session.clear()
         book = book.refresh()
 
-        def params = ["pages[0].id": "$page1.id"]
+        def params = ['pages[0]': [id: "$page1.id"]]
 
         book.properties = params
 
@@ -195,7 +194,7 @@ class AssociationBindingAuthor {
         session.clear()
         author = author.refresh()
 
-        def params = ["books[0].pages[0].id": "$page1.id"]
+        def params = ["books[0]": ['pages[0]': [id: "$page1.id"]]]
 
         author.properties = params
 
@@ -215,7 +214,7 @@ class AssociationBindingAuthor {
         session.clear()
         book = book.refresh()
 
-        def params = ["pages[0].id": "null"]
+        def params = ['pages[0]': [id: "null"]]
         book.properties = params
 
         assertNull "Should have removed pages[0] but it is ${book.pages[0]}", book.pages[0]
@@ -232,7 +231,7 @@ class AssociationBindingAuthor {
         session.clear()
         book = book.refresh()
 
-        def params = ["pages[0].number": "1", "pages[1].number": "2", "pages[2].number": "3"]
+        def params = ['pages[0]': [number: "1"], 'pages[1]': [number: "2"], 'pages[2]': [number: "3"]]
         book.properties = params
         assertEquals "Should bound new pages to book", 3, book.pages.size()
 
@@ -252,7 +251,7 @@ class AssociationBindingAuthor {
         session.clear()
         book = book.refresh()
 
-        def params = ["reviewers[rob].id": "null"]
+        def params = ["reviewers[rob]": [id: "null"]]
         book.properties = params
 
         assertNull "Should have removed reviewers[rob] but it is ${book.reviewers['rob']}", book.reviewers["rob"]

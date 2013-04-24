@@ -36,7 +36,6 @@ class NullablePart {
      item nullable:true
   }
 }
-
 '''
     }
 
@@ -53,7 +52,7 @@ class NullablePart {
 
         session.clear()
 
-        def part = Part.newInstance(name:"Intel CPU", 'item.id': item.id)
+        def part = Part.newInstance(name:"Intel CPU", item: [id: item.id])
 
         assert part.save(flush:true) != null
 
@@ -66,7 +65,7 @@ class NullablePart {
         assert Part.get(part.id).item != null
     }
 
-      // test for GRAILS-3783
+    // test for GRAILS-3783
     void testBindAndSaveWithNullableManySideAndInverseListCollection() {
         buildMockRequest()
 
