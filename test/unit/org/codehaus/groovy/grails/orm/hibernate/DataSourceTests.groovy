@@ -13,7 +13,7 @@ class Flanglurb {}
 '''
     }
 
-    void testDataBindingErrors() {
+    void testConnectionTypes() {
         def dc = ga.getDomainClass('Flanglurb').clazz
         dc.withTransaction { s ->
 
