@@ -91,6 +91,13 @@ class AutoFlushPropertyTests extends AbstractGrailsHibernateTests {
     }
 
     private void setAutoFlush(boolean auto) {
+        def config = AutoFlushBand.currentGormInstanceApi().config
+        if (config == null) {
+            config = [:]
+            AutoFlushBand.currentGormInstanceApi().config = config
+        }
+        config.autoFlush = auto
+
         ga.config.grails.gorm.autoFlush = auto
         ga.configChanged()
     }
